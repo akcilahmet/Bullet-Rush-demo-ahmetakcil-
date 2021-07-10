@@ -5,11 +5,15 @@ using UnityEngine;
 public class BulletControl : MonoBehaviour
 {
 
+    
+
     public float bulletSpeed = 5f;
     Rigidbody rg;
     void Start()
     {
         rg = GetComponent<Rigidbody>();
+
+        
     }
 
     // Update is called once per frame
@@ -24,8 +28,7 @@ public class BulletControl : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             Destroy(gameObject);
-            Debug.Log("Enemy temas oldu");
-            //Destroy(other.gameObject, .3f);
+            Destroy(other.gameObject, .3f);
         }
         else
         {
