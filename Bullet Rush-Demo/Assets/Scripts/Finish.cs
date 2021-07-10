@@ -11,11 +11,11 @@ public class Finish : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //What to do when the player touches the finish object
-        if (other.gameObject.tag == "finishtag")
+        if (other.gameObject.tag == "Player")
         {
-            gameObject.GetComponent<characterMoveControl>().enabled = false;
-            gameObject.GetComponent<FireControl>().enabled = false;
-            gameObject.GetComponent<Animator>().SetTrigger("danceprm");
+            other.gameObject.GetComponent<characterMoveControl>().enabled = false;
+            other.gameObject.GetComponent<FireControl>().enabled = false;
+            other.gameObject.GetComponent<Animator>().SetTrigger("danceprm");
             pistol.SetActive(false);
             pistol1.SetActive(false);
 

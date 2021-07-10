@@ -20,20 +20,16 @@ public class characterMoveControl : MonoBehaviour
     private void Start()
     {
         tempSpeed = walkingSpeed;
-        //walkingSpeed = 0;
 
         anim = GetComponent<Animator>();
-        //anim.SetFloat("verticalprm", 0f);
 
     }
 
-    //public void runStart()
-    //{
-    //    anim.SetTrigger("idleprm");
-
-    //    walkingSpeed = tempSpeed;
-    //    DOTween.To(() => walkingSpeed, x => walkingSpeed = x, tempSpeed, 1);
-    //}
+    public void runStart()
+    {
+        walkingSpeed = tempSpeed;
+        DOTween.To(() => walkingSpeed, x => walkingSpeed = x, tempSpeed, 1);
+    }
     public void FixedUpdate()
     {
         moveControl();

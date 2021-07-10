@@ -29,13 +29,17 @@ public class FireControl : MonoBehaviour
     private bool isAiming;
     [SerializeField] LayerMask layermask;
 
-
+    //healthbar variables
+    public GameObject HealtBar;
+    float difference = 0;//
     void Start()
     {
 
         enemyChildCount = enemyParent.transform.childCount;
 
-        //currentGun.transform.position = aimpos.position;
+        HealtBar.GetComponent<Slider>().maxValue = enemyChildCount;//initial enemy count assigned to maxvalue
+
+        currentGun.transform.position = aimpos.position;
     }
 
 
@@ -53,9 +57,14 @@ public class FireControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //The number of enemies is subtracted from the maxvalue.The result is assigned the value value.
+        difference = HealtBar.GetComponent<Slider>().maxValue - enemyChildCount;
+        HealtBar.GetComponent<Slider>().value = difference;
+
         //Made to show the number of enemy on the screen
         enemyChildCount = enemyParent.transform.childCount;
-        EnemyCountText.text = "Enemy:" + enemyChildCount.ToString();
+        EnemyCountText.text = "Enemy: " + enemyChildCount.ToString();
+        
 
     }
 

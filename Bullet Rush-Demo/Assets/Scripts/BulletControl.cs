@@ -28,6 +28,7 @@ public class BulletControl : MonoBehaviour
         {
             Destroy(gameObject);//the bullet will be destroyed upon contact with the enemy
             Destroy(other.gameObject, .3f);
+
         }
         else
         {
