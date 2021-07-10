@@ -10,6 +10,7 @@ public class Finish : MonoBehaviour
     public GameObject pistol1;
     private void OnTriggerEnter(Collider other)
     {
+        //What to do when the player touches the finish object
         if (other.gameObject.tag == "finishtag")
         {
             gameObject.GetComponent<characterMoveControl>().enabled = false;

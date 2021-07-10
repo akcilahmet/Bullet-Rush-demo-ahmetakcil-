@@ -6,21 +6,16 @@ using DG.Tweening;
 
 public class characterMoveControl : MonoBehaviour
 {
+    //movement speed variables
     public float Horspeed = 300;
-
     public float walkingSpeed = 200;
+    public DynamicJoystick dynamicJoystick;
+
     float tempSpeed;
 
-    public DynamicJoystick dynamicJoystick;
     public Rigidbody rb;
     Animator anim;
 
-
-    FireControl fireControl;
-    private void Awake()
-    {
-        fireControl = FindObjectOfType<FireControl>();
-    }
 
     private void Start()
     {
@@ -45,16 +40,11 @@ public class characterMoveControl : MonoBehaviour
     }
     void moveControl()
     {
-       
-            Vector3 move = new Vector3(dynamicJoystick.Horizontal * Horspeed * Time.fixedDeltaTime, rb.velocity.y, dynamicJoystick.Vertical * walkingSpeed * Time.fixedDeltaTime);
-            
-            //float targetAngle = Mathf.Atan2(move.x, move.z) * Mathf.Rad2Deg;
-            //transform.rotation = Quaternion.Euler(0f, targetAngle, 0f);
-            rb.velocity = move;
-        
-        
-        
+        //Added joystick values ​​to vector3
+        Vector3 move = new Vector3(dynamicJoystick.Horizontal * Horspeed * Time.fixedDeltaTime, rb.velocity.y, dynamicJoystick.Vertical * walkingSpeed * Time.fixedDeltaTime);
+        rb.velocity = move;
 
+        //animations that should work while moving
         anim.SetFloat("horprm", dynamicJoystick.Horizontal);
         anim.SetFloat("verprm", dynamicJoystick.Vertical);
 

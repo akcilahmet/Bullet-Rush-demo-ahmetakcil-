@@ -7,6 +7,7 @@ public class playerDie : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
+        //What to do when the enemy i contacts the player
         if (other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<characterMoveControl>().enabled = false;
