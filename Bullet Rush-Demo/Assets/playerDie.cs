@@ -7,11 +7,11 @@ public class playerDie : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Player")
         {
-            gameObject.GetComponent<characterMoveControl>().enabled = false;
-            gameObject.GetComponent<FireControl>().enabled = false;
-            gameObject.GetComponent<Animator>().SetTrigger("dieprm");
+            other.gameObject.GetComponent<characterMoveControl>().enabled = false;
+            other.gameObject.GetComponent<FireControl>().enabled = false;
+            other.gameObject.GetComponent<Animator>().SetTrigger("dieprm");
             StartCoroutine(ReturnLevelTime());
         }
     }
